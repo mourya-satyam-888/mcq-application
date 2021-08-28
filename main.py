@@ -23,7 +23,7 @@ class Question(db.Model):
 @app.route('/login')
 def login():
     return render_template('login.html')
-@app.route('/questions')
+@app.route('/questions',methods=["GET","POST"])
 def submit():
     session['name']=random.randint(0,100000)
     return f'number is {session["name"]}'
