@@ -1,0 +1,135 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    color:white;
+    background-color:white;
+    font-family: 'Droid Serif', serif;
+}
+
+.heading {
+    /*margin-top: 4%;*/
+    padding:2%;
+    text-align: center;
+    background-color:rgba(3, 3, 55, 0.7);
+    letter-spacing:2px;
+}
+
+.alg {
+    position: relative;
+    top: 12%;
+    display: flex;
+    justify-content: center;
+    height: 50%;
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+    flex-direction:vertical;
+    width: 80%;
+    height: 100%;
+
+}
+
+.rules {
+    position: relative;
+    top : 10%;
+    margin-right: 40px;
+    color:black;
+    letter-spacing:2px;
+    font-size:1.5em;
+    /*background:black;*/
+}
+
+.rules h2 {
+    text-align: center;
+}
+
+.login {
+
+    background: rgba(3, 3, 55, 0.5);
+    width: 70%;
+    height: 100%;
+    margin: auto;
+
+    border-radius: 17px;
+
+}
+
+.login h2 {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3rem;
+    height: 3rem;
+    background: rgba(3, 3, 55, 0.7);
+    font-size: 1.4rem;
+    border-radius: 17px 17px 0px 0px;
+    color: #d3d3d3;
+}
+
+.login form {
+    text-align: center;
+}
+
+input[type="submit"] {
+    background: rgba(235, 30, 54, 1);
+    border: 0;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+    padding: 0.7rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+input {
+    background: transparent;
+    border: 0;
+    border-left: 4px solid;
+    border-color: #FF0000;
+    padding: 10px;
+    color: white;
+    width: 80%;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: 0;
+    background: rgba(235, 30, 54, 0.3);
+    border-radius: 1.2rem;
+    border-color: transparent;
+}
+
+::placeholder {
+    color: #d3d3d3;
+}
+
+
+@media all and (min-width: 481px) and (max-width: 568px) {
+    h1 {
+        font-size: 200%;
+    }
+    .main {
+        flex-direction: column;
+        position: relative;
+        top: 35%;
+    }
+    .login {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+    @media all and (min-width: 569px) and (max-width: 768px) {
+        .login {
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+    }
