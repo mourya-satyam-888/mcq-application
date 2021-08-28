@@ -14,7 +14,7 @@
 
             function test()
             {
-                var a = document.querySelector('input[name="option"]:checked').value;
+                var a = document.querySelector('input[id = "option"]:checked').value;
         
                 document.getElementById("next").href="/questions?option="+a;
             }
@@ -24,7 +24,8 @@
     
     <body>
                     
-                    <form action="/submit" method="post">
+                    <form action="/" method="post">
+        
                     <div>
 
                         <h2>Time Remaining</h2>
@@ -45,19 +46,19 @@
                                     
                                     <div class="" id="options"> 
                                         <label class="options">
-                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}">
+                                            <input type="radio" id="option" name="radio" value="1">
                                             <p>{{q.option_1}}</p>
                                         </label><br> 
                                         <label class="options">
-                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}">
+                                            <input type="radio" id="option" name="radio" value="2">
                                             <p>{{q.option_2}}</p>
                                         </label><br>
                                         <label class="options"> 
-                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}"> 
+                                            <input type="radio" id="option" name="radio" value="3">
                                             <p>{{q.option_3}}</p> 
                                         </label><br>
                                         <label class="options">
-                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}"> 
+                                            <input type="radio" id="option" name="radio" value="4">
                                             <p>{{q.option_4}}</p> 
                                         </label><br> 
                                     </div>

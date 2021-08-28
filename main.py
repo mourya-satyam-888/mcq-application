@@ -28,12 +28,12 @@ def login():
     return render_template('login.html')
 @app.route('/quest',methods=["GET","POST"])
 def quest():
+    global question
     if request.method=="POST":
         session["name"] = request.form.get("username")
         session["email"] = request.form.get("email")
         session["flag"]=0
         all_q = Question.query.all()
-        global question
         question = []
         for q in all_q:
             question.append(q)
@@ -45,21 +45,22 @@ def quest():
 @app.route('/questions',methods=["GET","POST"])
 def generated_question():
     global question
+    print(len(question))
     if session['flag']==0:
         session['flag']=1;
         return render_template("question.html", q=question[0], que=5-len(question)+1)
     x=question[0]
     question.pop(0)
     option=request.args.get("option")
-    if x.ans==int(option):
+    if x.answer==int(option):
         session['marks']+=1
     return render_template("question.html", q=question[0],que=5-len(question)+1)
-@app.routes('/submit',methods=["GET","POST"])
+@app.route('/submit',methods=["GET","POST"])
 def submit():
     x = question[0]
     question.pop(0)
     option = request.args.get("option")
-    if x.ans == int(option):
+    if x.answer == int(option):
         session['marks'] += 1
     return render_template("score.html",name=session["name"],total=session['marks'])
 app.run(debug=True)
