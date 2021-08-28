@@ -32,6 +32,7 @@ def quest():
     if request.method=="POST":
         session["name"] = request.form.get("username")
         session["email"] = request.form.get("email")
+        session['marks']=0
         session["flag"]=0
         all_q = Question.query.all()
         question = []
@@ -54,6 +55,7 @@ def generated_question():
     option=request.args.get("option")
     if x.answer==int(option):
         session['marks']+=1
+    print(session['marks'])
     return render_template("question.html", q=question[0],que=5-len(question)+1)
 @app.route('/submit',methods=["GET","POST"])
 def submit():
