@@ -54,4 +54,12 @@ def generated_question():
     if x.ans==int(option):
         session['marks']+=1
     return render_template("question.html", q=question[0],que=5-len(question)+1)
+@app.routes('/submit',methods=["GET","POST"])
+def submit():
+    x = question[0]
+    question.pop(0)
+    option = request.args.get("option")
+    if x.ans == int(option):
+        session['marks'] += 1
+    return render_template("score.html",name=session["name"],total=session['marks'])
 app.run(debug=True)

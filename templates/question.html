@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>TEST</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <script type="text/javascript">
+
+            function test()
+            {
+                var a = document.querySelector('input[name="option"]:checked').value;
+        
+                document.getElementById("next").href="/questions?option="+a;
+            }
+        </script>
+
+    </head>
+    
+    <body>
+                    
+                    <form action="/submit" method="post">
+                    <div>
+
+                        <h2>Time Remaining</h2>
+                        <script src="static/script.js"></script>
+                        <p id="time">20</p>
+
+                        <input type="submit" name="submit" value="submit" id="submit" class="submit">
+            
+                        </div> <br>
+                        
+                        <span>Question {{que}} of {{tot}}</span>
+                        
+                        <div>
+                            <div>
+                                <div>
+                                    
+                                    <div ><b>Q{{que}}.{{q.question}}</b></div>
+                                    
+                                    <div class="" id="options"> 
+                                        <label class="options">
+                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}">
+                                            <p>{{q.option_1}}</p>
+                                        </label><br> 
+                                        <label class="options">
+                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}">
+                                            <p>{{q.option_2}}</p>
+                                        </label><br>
+                                        <label class="options"> 
+                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}"> 
+                                            <p>{{q.option_3}}</p> 
+                                        </label><br>
+                                        <label class="options">
+                                            <input type="radio" id="option" name="radio" value="{{q.option_1}}"> 
+                                            <p>{{q.option_4}}</p> 
+                                        </label><br> 
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="buttons">
+                                    <a href="/questions" id="next" type="button" onclick="test()">Next</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <br>
+    </body>
+    
+</html>
