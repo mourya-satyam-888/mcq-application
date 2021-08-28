@@ -1,4 +1,4 @@
-from flask import Flask, render_template,session
+from flask import Flask, render_template,session,request,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 import random
 app= Flask(__name__)
@@ -25,6 +25,22 @@ def login():
     return render_template('login.html')
 @app.route('/questions',methods=["GET","POST"])
 def submit():
-    session['name']=random.randint(0,100000)
-    return f'number is {session["name"]}'
+    if request.method=="POST":
+        session["name"]=request.form.get("username")
+        session["email"]=request.form.get("email")
+        session['ans']="00000"
+        session['page']=0
+        all_q=Question.query.all()
+        question=[]
+        for q in all_q:
+            question.append(q)
+        print(question)
+        total=5
+        question=random.sample(question,total)
+        #print(session["question"])
+        session["ans"]=""
+        for q in question:
+            session["ans"]+=str(q.answer)
+        return f'number is {session["name"]}'
+    return render_template('login.html')
 app.run(debug=True)
