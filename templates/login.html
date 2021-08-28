@@ -5,58 +5,55 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        
         <title>Home Page</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="static/login.css">
-
+        
 
     </head>
 
     <body>
-
-        <h1 class="heading">ONLINE ASSESMENT PLATFORM</h1>
-
-        <div class="alg">
-
-            <div class="main">
-                <div class="rules">
-
-                    <h2> RULES </h2>
-                    <br>
-
-                    <ol>
-
-                        <li>Please enter all the details correctly.</li>
-                        <li>There will be 5 question in test.</li>
-                        <li>You are given <b>20 seconds</b> for each of the questions.</li>
-                        <li>The test will automatically finished after the time limit of last question is reached.</li>
-                        <li>Read the question carefully and Complete test in time limit.</li>
-
-                    </ol>
-
-                </div>
-
-                <div class="login">
-
-                    <h2>Enter details</h2>
-
-                    <form action="/quest" method="post">
-
-                        <br/>
-
-                        <input type="text" name="username" id="username" placeholder="Full Name" required>
-                        <br/><br/>
-                        <input type="email" name="email" id="email" placeholder="E-mail" required>
-                        <br/><br/><br/>
-
-                        <input type="submit" name="submit" id="submit" value="START TEST">
-
-                    </form>
-
+        <div class="wrapper">
+            <h1 class="heading">ONLINE ASSESMENT PLATFORM</h1>
+            <br>
+            <div class="container">
+              <div class="col-left">
+                  <div class="login-text">
+                  <h2 class="rules">Rules</h2>
+                      <ol>
+                          <li>Please enter all the details correctly.</li>
+                          <br>
+                          <li>There will be 5 question in test.</li>
+                          <br>
+                          <li>You are given <b>20 seconds</b> for each of the questions.</li>
+                          <br>
+                          <li>The test will automatically finished after the time limit of last question is reached.</li>
+                          <br>
+                          <li>Read the question carefully and Complete test in time limit.</li>
+                  
+                      </ol>
                 </div>
             </div>
-        </div>
+            <div class="col-right">
+                <div class="login-form">
+                    <h2>Enter Details</h2>
+                  <form action="/quest" method="post">
+                    <p>
+                      <input type="text" name="username" id="username"  placeholder="Username" required>
+                    </p>
+                    <p>
+                      <input type="email" name="email" id="email" placeholder="email@example.com" required>
+                    </p>
+                    <p>
+                      <input class="btn" type="submit" name="submit" id="submit" value="Start Test" />
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+          </div>
     </body>
 </html>
