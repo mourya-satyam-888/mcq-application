@@ -18,6 +18,14 @@
         
                 document.getElementById("next").href="/questions?option="+a;
             }
+            
+            function test1()
+            {
+                var a = document.querySelector('input[id = "option"]:checked').value;
+        
+                document.getElementById("next").href="/submit?option="+a;
+            }
+            
         </script>
 
     </head>
@@ -32,7 +40,9 @@
                         <script src="static/script.js"></script>
                         <p id="time">20</p>
 
-                        <input type="submit" name="submit" value="submit" id="submit" class="submit">
+                        <div class="buttons">
+                            <a href="/submit" id="next" type="button" onclick="test1()">Submit</a>
+                        </div>
             
                         </div> <br>
                         
@@ -70,6 +80,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <input type="hidden" id="que" value="{{que}}";
                         
                     </form>
                     <br>

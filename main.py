@@ -25,6 +25,7 @@ def login():
     session["name"] =""
     session["email"]=""
     session["flag"] =0
+    session['complete']=False
     return render_template('login.html')
 @app.route('/quest',methods=["GET","POST"])
 def quest():
@@ -46,6 +47,8 @@ def quest():
 @app.route('/questions',methods=["GET","POST"])
 def generated_question():
     global question
+    if session['complete']:
+        return render_template('login.html')
     print(len(question))
     if session['flag']==0:
         session['flag']=1;
@@ -67,8 +70,27 @@ def generated_question():
     try:
         return render_template("question.html", q=question[0],que=5-len(question)+1)
     except:
-        return redirect('/submit',code=302)
+        return redirect('/sub',code=302)
 @app.route('/submit',methods=["GET","POST"])
+def subsubmit():
+    global question
+    session['complete']=True
+    try:
+        x=question[0]
+    except:
+        return "<h1>You have Misbehaved Cant go ahead Start again<h1>"
+    x=question[0]
+    question.pop(0)
+    option=request.args.get("option")
+    try:
+        option=int(option)
+    except:
+        option=0
+    if x.answer==int(option):
+        session['marks']+=1
+    print(session['marks'])
+    return redirect('/sub',code=302)
+@app.route('/sub',methods=["GET","POST"])
 def submit():
     return render_template("score.html",name=session["name"],total=session['marks'])
 app.run(debug=True)
