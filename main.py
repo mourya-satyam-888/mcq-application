@@ -41,6 +41,6 @@ def submit():
         session["ans"]=""
         for q in question:
             session["ans"]+=str(q.answer)
-        return f'number is {session["name"]}'
+        return render_template("question.html",q=question)
     return render_template('login.html')
 app.run(debug=True)
