@@ -18,6 +18,11 @@
         
                 document.getElementById("next").href="/questions?option="+a;
             }
+            function test_1()
+            {
+                var a = document.querySelector('input[id = "option"]:checked').value;
+                document.getElementById("next").href="/submit?option="+a;
+            }
         </script>
 
     </head>

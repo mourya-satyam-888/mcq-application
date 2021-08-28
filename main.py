@@ -1,15 +1,17 @@
 from flask import Flask, render_template,session,request,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 import random
+import datetime
 app= Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///working.db'
 app.config['SECRET_KEY']='1x25d1d63s4ddnant'
 db=SQLAlchemy(app)
 class User(db.Model):
     id=db.Column(db.Integer(), primary_key=True)
-    username=db.Column(db.String(30), nullable=False, unique=True)
-    email_address=db.Column(db.String(50), nullable=False, unique=True)
+    username=db.Column(db.String(30), nullable=False, unique=False)
+    email_address=db.Column(db.String(50), nullable=False, unique=False)
     marks=db.Column(db.Integer(),nullable=False,default=0)
+    date=db.Column(db.String(15),nullable=False)
 class Question(db.Model):
     id=db.Column(db.Integer(), primary_key=True)
     question = db.Column(db.String(1024), nullable=False, unique=True)
@@ -92,5 +94,12 @@ def subsubmit():
     return redirect('/sub',code=302)
 @app.route('/sub',methods=["GET","POST"])
 def submit():
+    usr1=User()
+    usr1.username=session['name']
+    usr1.email_address=session['email']
+    usr1.marks=session['marks']
+    usr1.date=str(datetime.datetime.now())
+    db.session.add(usr1)
+    db.session.commit()
     return render_template("score.html",name=session["name"],total=session['marks'])
 app.run(debug=True)

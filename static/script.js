@@ -9,4 +9,7 @@ setInterval(function() {
         id = document.getElementById("time");
         id.innerHTML = val;
     }
+    if(val==0){
+        document.getElementById("next").click();
+    }
 },1000);
