@@ -9,7 +9,7 @@ body {
     width: 100%;
     color:white;
     background-color:white;
-    font-family: 'Droid Serif', serif;
+    font-family: Trebuchet MS, sans-serif;
 }
 
 .heading {
@@ -34,15 +34,16 @@ body {
     flex-direction:vertical;
     width: 80%;
     height: 100%;
-
+    border:0px solid black;
+    /*box-shadow:5px 5px rgb(0,0,0,0.5);*/
 }
 
 .rules {
     position: relative;
-    top : 10%;
+    /*top : 10%;*/
     margin-right: 40px;
     color:black;
-    letter-spacing:2px;
+    letter-spacing:1.5px;
     font-size:1.5em;
     /*background:black;*/
 }
@@ -92,11 +93,13 @@ input[type="submit"] {
 input {
     background: transparent;
     border: 0;
+
     border-left: 4px solid;
     border-color: #FF0000;
     padding: 10px;
     color: white;
     width: 80%;
+    border-bottom:1px solid white;
 }
 
 input[type="text"]:focus,
