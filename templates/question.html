@@ -21,6 +21,11 @@
             function test_1()
             {
                 var a = document.querySelector('input[id = "option"]:checked').value;
+                document.getElementById("newton").href="/submit?option="+a;
+            }
+            function test_2()
+            {
+                var a = document.querySelector('input[id = "option"]:checked').value;
                 document.getElementById("next").href="/submit?option="+a;
             }
         </script>
@@ -37,7 +42,7 @@
                         <script src="static/script.js"></script>
                         <p id="time">20</p>
 
-                        <a href="/submit" onclick="test_1()">
+                        <a href="/submit" onclick="test_1()" id="newton">
                             <input type="button" name="submit" value="submit" id="submit" class="submit">
                         </a>
                         </div> <br>
@@ -76,7 +81,7 @@
                                     <a href="/questions" id="next" type="button" onclick="test()">Next</a>
                                     {% endif %}
                                     {% if que==5 %}
-                                    <a href="/submit" id="next" type="button" onclick="test_1()">Submit</a>
+                                    <a href="/submit" id="next" type="button" onclick="test_2()">Submit</a>
                                     {% endif %}
                                 </div>
                             </div>
