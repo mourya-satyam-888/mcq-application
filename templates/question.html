@@ -18,73 +18,67 @@
         
                 document.getElementById("next").href="/questions?option="+a;
             }
-            
-            function test1()
-            {
-                var a = document.querySelector('input[id = "option"]:checked').value;
-        
-                document.getElementById("next").href="/submit?option="+a;
-            }
-            
         </script>
 
     </head>
-    
+
     <body>
-                    
+
                     <form action="/submit" method="post">
-        
+
                     <div>
 
                         <h2>Time Remaining</h2>
                         <script src="static/script.js"></script>
                         <p id="time">20</p>
 
-                        <div class="buttons">
-                            <a href="/submit" id="next" type="button" onclick="test1()">Submit</a>
-                        </div>
-            
+                        <a href="/submit" onclick="test_1()">
+                            <input type="button" name="submit" value="submit" id="submit" class="submit">
+                        </a>
                         </div> <br>
-                        
+
                         <span>Question {{que}} of 5</span>
-                        
+
                         <div>
                             <div>
                                 <div>
-                                    
+
                                     <div ><b>Q{{que}}.{{q.question}}</b></div>
-                                    
-                                    <div class="" id="options"> 
+
+                                    <div class="" id="options">
                                         <label class="options">
                                             <input type="radio" id="option" name="radio" value="1">
                                             <p>{{q.option_1}}</p>
-                                        </label><br> 
+                                        </label><br>
                                         <label class="options">
                                             <input type="radio" id="option" name="radio" value="2">
                                             <p>{{q.option_2}}</p>
                                         </label><br>
-                                        <label class="options"> 
+                                        <label class="options">
                                             <input type="radio" id="option" name="radio" value="3">
-                                            <p>{{q.option_3}}</p> 
+                                            <p>{{q.option_3}}</p>
                                         </label><br>
                                         <label class="options">
                                             <input type="radio" id="option" name="radio" value="4">
-                                            <p>{{q.option_4}}</p> 
-                                        </label><br> 
+                                            <p>{{q.option_4}}</p>
+                                        </label><br>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="buttons">
+                                    {% if que!=5 %}
                                     <a href="/questions" id="next" type="button" onclick="test()">Next</a>
+                                    {% endif %}
+                                    {% if que==5 %}
+                                    <a href="/submit" id="next" type="button" onclick="test_1()">Submit</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                        
-                        <input type="hidden" id="que" value="{{que}}";
-                        
+
                     </form>
                     <br>
     </body>
-    
+
 </html>

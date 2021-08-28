@@ -43,12 +43,12 @@ def quest():
         total = 5
         question = random.sample(question, total)
         return redirect('/questions',code=302)
-    return render_template("login.html")
+    return redirect("login.html",code=302)
 @app.route('/questions',methods=["GET","POST"])
 def generated_question():
     global question
     if session['complete']:
-        return render_template('login.html')
+        return redirect('/',code="302")
     print(len(question))
     if session['flag']==0:
         session['flag']=1;
