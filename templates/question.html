@@ -9,23 +9,23 @@
         <title>TEST</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
+        <link rel="stylesheet" type="text/css" href="./static/question.css/">
         <script type="text/javascript">
 
             function test()
             {
-                var a = document.querySelector('input[id = "option"]:checked').value;
+                var a = document.querySelector('input[name="radio"]:checked').value;
         
                 document.getElementById("next").href="/questions?option="+a;
             }
             function test_1()
             {
-                var a = document.querySelector('input[id = "option"]:checked').value;
+                var a = document.querySelector('input[name="radio"]:checked').value;
                 document.getElementById("newton").href="/submit?option="+a;
             }
             function test_2()
             {
-                var a = document.querySelector('input[id = "option"]:checked').value;
+                var a = document.querySelector('input[name="radio"]:checked').value;
                 document.getElementById("next").href="/submit?option="+a;
             }
         </script>
@@ -36,19 +36,58 @@
 
                     <form action="/submit" method="post">
 
-                        <div>
-
-                            <h2>Time Remaining</h2>
-                            <script src="static/script.js"></script>
-                            <p id="time">20</p>
+                        <div class="nav">
+                            
+                            <div class="innernav">
+                                <h2>Time Remaining</h2>
+                                <script src="static/script.js"></script>
+                                <p id="time">20</p>
+                            </div>
+                            
 
                             <a href="/submit" onclick="test_1()" id="newton">
                                 <input type="button" name="submit" value="submit" id="submit" class="submit">
                             </a>
                         </div>
                         <br>
+                        
+                        
+                        <div class="quize">
+                            <div class="question-bar">
+                              <h2 class="qestion">{{que}}) {{q.question}}</h2>
+                              <ul>
+                                <li>
 
-                        <span>Question {{que}} of 5</span>
+                                    <input type="radio" id="1" name="radio" value="1" class="ansList">
+                                  <label for="1" class="ansa">{{q.option_1}}</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="2" name="radio" value="2" class="ansList">
+                                    <label for="2" class="ansa">{{q.option_2}}</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="3" name="radio" value="3" class="ansList">
+                                    <label for="3" class="ansa">{{q.option_3}}</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="4" name="radio" value="4" class="ansList">
+                                    <label for="4" class="ansa">{{q.option_4}}</label>
+                                </li>
+                          
+                              </ul>
+                              <div class="footer-button">
+                                <!-- <button id="submit" class="submitBtn">Submit</button> -->
+                                {% if que!=5 %}
+                                    <a href="/questions" id="next" class="submitBtn" type="button" onclick="test()">Next</a>
+                                    {% endif %}
+                                    {% if que==5 %}
+                                    <a href="/submit" id="next" type="button" class="submitBtn" onclick="test_2()">Submit</a>
+                                    {% endif %}
+                              </div>
+                            </div>
+                            <div id="showscore" class="scoreArea"></div>
+                          </div>
+                        <!-- <span>Question {{que}} of 5</span>
 
                         <div>
                             <div>
@@ -86,7 +125,7 @@
                                     {% endif %}
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                     </form>
                     <br>
