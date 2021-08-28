@@ -18,29 +18,40 @@ class Question(db.Model):
     option_3 = db.Column(db.String(30), nullable=False, unique=False)
     option_4 = db.Column(db.String(30), nullable=False, unique=False)
     answer   = db.Column(db.Integer(),nullable=False,unique=False)
-
+question=[]
 @app.route('/')
 @app.route('/login')
 def login():
+    session["name"] =""
+    session["email"]=""
+    session["flag"] =0
     return render_template('login.html')
-@app.route('/questions',methods=["GET","POST"])
-def submit():
+@app.route('/quest',methods=["GET","POST"])
+def quest():
     if request.method=="POST":
-        session["name"]=request.form.get("username")
-        session["email"]=request.form.get("email")
-        session['ans']="00000"
-        session['page']=0
-        all_q=Question.query.all()
-        question=[]
+        session["name"] = request.form.get("username")
+        session["email"] = request.form.get("email")
+        session["flag"]=0
+        all_q = Question.query.all()
+        global question
+        question = []
         for q in all_q:
             question.append(q)
         print(question)
-        total=5
-        question=random.sample(question,total)
-        #print(session["question"])
-        session["ans"]=""
-        for q in question:
-            session["ans"]+=str(q.answer)
-        return render_template("question.html",q=question)
-    return render_template('login.html')
+        total = 5
+        question = random.sample(question, total)
+        return redirect('/questions',code=302)
+    return render_template("login.html")
+@app.route('/questions',methods=["GET","POST"])
+def generated_question():
+    global question
+    if session['flag']==0:
+        session['flag']=1;
+        return render_template("question.html", q=question[0], que=5-len(question)+1)
+    x=question[0]
+    question.pop(0)
+    option=request.args.get("option")
+    if x.ans==int(option):
+        session['marks']+=1
+    return render_template("question.html", q=question[0],que=5-len(question)+1)
 app.run(debug=True)
