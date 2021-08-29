@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/score.css">
 </head>
 <body>
-  <p>Hello {{name}},Your Score is {{total}}</p>
+        <div class="wrapper">
+        <div class="container">
+              <div class="col-left">
+                  <div class="login-text">
+                  <h2 class="rules">Result</h2>
+                      <br>
+                      <br>
+                   <div class="score-text">
+                       Hey {{name}}, you have successfully completed your assessment, score is:
+                   </div>
+                      <br>
+                      {% if total>2 %}
+                      <div class=" score-1 score-wrapper">
+                          <p class="score">{{total}}/5</p>
+                      </div>
+                      {% endif %}
+                      {%if total<3 %}
+                      <div class=" score-2 score-wrapper">
+                          <p class="score">{{total}}/5</p>
+                      </div>
+                      {% endif %}
+                </div>
+              </div>
+            </div>
 </body>
 </html>

@@ -52,13 +52,13 @@ def generated_question():
     if session['complete']:
         return redirect('/',code="302")
     print(len(question))
-    if session['flag']==0:
-        session['flag']=1;
-        return render_template("question.html", q=question[0], que=5-len(question)+1)
     try:
+        if session['flag']==0:
+            session['flag']=1;
+            return render_template("question.html", q=question[0], que=5-len(question)+1)
         x=question[0]
     except:
-        return "<h1>You have Misbehaved Cant go ahead Start again<h1>"
+        return "<h1>ACCESS DENIED<h1>"
     x=question[0]
     question.pop(0)
     option=request.args.get("option")
@@ -80,7 +80,7 @@ def subsubmit():
     try:
         x=question[0]
     except:
-        return "<h1>You have Misbehaved Cant go ahead Start again<h1>"
+        return "<h1>ACCESS DENIED<h1>"
     x=question[0]
     question.pop(0)
     option=request.args.get("option")
@@ -94,12 +94,17 @@ def subsubmit():
     return redirect('/sub',code=302)
 @app.route('/sub',methods=["GET","POST"])
 def submit():
-    usr1=User()
-    usr1.username=session['name']
-    usr1.email_address=session['email']
-    usr1.marks=session['marks']
-    usr1.date=str(datetime.datetime.now())
-    db.session.add(usr1)
-    db.session.commit()
-    return render_template("score.html",name=session["name"],total=session['marks'])
+    try:
+        if session["email"]=="":
+            return redirect('login',code=302)
+        usr1=User()
+        usr1.username=session['name']
+        usr1.email_address=session['email']
+        usr1.marks=session['marks']
+        usr1.date=str(datetime.datetime.now())
+        db.session.add(usr1)
+        db.session.commit()
+        return render_template("score.html",name=session["name"],total=session['marks'])
+    except:
+        return redirect('login',code=302)
 app.run(debug=True)

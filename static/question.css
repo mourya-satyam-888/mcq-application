@@ -100,10 +100,13 @@ form {
   .footer-button{
     margin-top: 20px;
   }
+
+
+
   .btn,
   .submitBtn{
     padding: 14px 30px;
-    background-color: #0b03fc;
+    background-color: #1d3557;
     color: #fff;
     border: 0;
     cursor: pointer;
@@ -123,21 +126,15 @@ form {
     display: flex;
     justify-content: space-between;
     background-color: white;
-      padding-top: 15px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-top: 10px;
+      padding-left: 35px;
+      padding-right: 35px;
       opacity: 0.85;
   }
 .nav h2 {
-    padding-bottom: 15px;
+    padding-bottom: 25px;
 }
-.nav input {
-    opacity: 0.90;
-    
-}
-.innernav {
-    display: flex;
-}
+
 
 .innernav p {
     margin-left: 30px;
@@ -181,3 +178,34 @@ form {
       height: 9px;
       margin-right: 6px;
   }
+
+.qestion {
+    color : #1d3557;
+}
+
+.innernav {
+    padding-top: 5px;
+    display: flex;
+    
+}
+
+.innernav h2 {
+    color : #1d3557;
+    padding-top: 5px;
+}
+
+li {
+    color: #1d3557;
+}
+
+#time {
+    font-size: 20px;
+    padding-top: 3px;
+    width:38px;
+    height: 38px;
+    text-align: center;
+    background-color: #1d3557;
+    color: white;
+    border: 0.78px solid #1d3557;
+    border-radius: 50%;
+}
