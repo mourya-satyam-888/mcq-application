@@ -51,7 +51,7 @@ def generated_question():
     global question
     if session['complete']:
         return redirect('/',code="302")
-    print(len(question))
+    #print(len(question))
     try:
         if session['flag']==0:
             session['flag']=1;
@@ -68,7 +68,7 @@ def generated_question():
         option=0
     if x.answer==int(option):
         session['marks']+=1
-    print(session['marks'])
+    #print(session['marks'])
     try:
         return render_template("question.html", q=question[0],que=5-len(question)+1)
     except:
@@ -90,7 +90,7 @@ def subsubmit():
         option=0
     if x.answer==int(option):
         session['marks']+=1
-    print(session['marks'])
+    #print(session['marks'])
     return redirect('/sub',code=302)
 @app.route('/sub',methods=["GET","POST"])
 def submit():
