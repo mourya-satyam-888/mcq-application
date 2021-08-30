@@ -23,7 +23,7 @@ class Question(db.Model):
 question=[]
 @app.route('/')
 @app.route('/login')
-def login():
+def index():
     session["name"] =""
     session["email"]=""
     session["flag"] =0
@@ -107,4 +107,5 @@ def submit():
         return render_template("score.html",name=session["name"],total=session['marks'])
     except:
         return redirect('login',code=302)
-app.run(debug=True)
+if __name__=="__main__":
+    app.run(debug=False)
