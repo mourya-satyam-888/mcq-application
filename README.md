@@ -1,9 +1,11 @@
+
+
 # mcq-application
 This is an online assessment platform i.e. web application made using ```Python-Flask``` microframework along with ```MySQL```(SQLITE3) database in backend and in frontend ```Jinja``` templating along with ```Html,css``` and a bit of ```javascript``` is used.
 
 This application is created by me(Satyam Mourya) and Amiy tiwari as a Project of Walkover University Program
-https://drive.google.com/file/d/15cQjLJeqQ_zQJQt4W3NZcA9CUB8c5dsO/view?usp=drivesdk
 
+https://user-images.githubusercontent.com/56707280/131287719-8b030a1a-c9f3-4067-b62b-9b9247654927.mp4
 
 # Required functionality
 
