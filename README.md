@@ -4,6 +4,9 @@
 This is an online assessment platform i.e. web application made using ```Python-Flask``` microframework along with ```MySQL```(SQLITE3) database in backend and in frontend ```Jinja``` templating along with ```Html,css``` and a bit of ```javascript``` is used.
 
 This application is created by me(Satyam Mourya) and Amiy tiwari as a Project of Walkover University Program
+Website-Link:
+
+https://walkover-mcq-app.herokuapp.com/
 
 https://user-images.githubusercontent.com/56707280/131287719-8b030a1a-c9f3-4067-b62b-9b9247654927.mp4
 
@@ -46,3 +49,7 @@ python main.py
 on your python interpreter
 
 If everything executed well and in order then server with port 5000 must be given in terminal copy and paste in browser. Our site must be loaded on local server```.
+
+#CI CD
+we have not used any integration tool
+For continuous deployment we have used heroku
