@@ -50,7 +50,7 @@ on your python interpreter
 
 If everything executed well and in order then server with port 5000 must be given in terminal copy and paste in browser. Our site must be loaded on local server```.
 
-# CI CD
+# CI/CD
 we have not used any integration tool
 
 For continuous deployment we have used heroku
