@@ -37,6 +37,8 @@ https://user-images.githubusercontent.com/56707280/131287719-8b030a1a-c9f3-4067-
 
 This page is created to view the list of candidates and their marks but can only be accessed by authorised user
 
+https://walkover-mcq-app.herokuapp.com/admin
+
 Credentials
 
 ```
