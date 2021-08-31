@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 Finally, run the application using
 ```bash
-python main.py
+python app.py
 ```
 on your python interpreter
 
