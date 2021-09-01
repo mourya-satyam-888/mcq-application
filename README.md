@@ -33,20 +33,6 @@ https://user-images.githubusercontent.com/56707280/131287719-8b030a1a-c9f3-4067-
 
 2.```user table``` - To store the data and scores of the user and the time of test submission.
 
-# Admin Login
-
-This page is created to view the list of candidates and their marks but can only be accessed by authorised user
-
-https://walkover-mcq-app.herokuapp.com/admin
-
-Credentials
-
-```
-Username: walkover
-Password: walkover
-```
-
-
 
 # Getting Started ```project setup```
 

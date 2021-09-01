@@ -9,7 +9,7 @@
         <title>Admin Page</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" type="text/css" href="./static/question.css/">
 
         <style>
 
@@ -26,9 +26,28 @@
             td {
                 border-top: 2px solid deeppink;
             }
-
+            .container {
+                display: flex;
+                width: 20%;
+                justify-content: space-between;
+                margin: 0px;
+            }
 
         </style>
+        
+        <script type="text/javascript">
+
+            function test()
+            {
+                document.getElementById("next").href="/admin-surprise?option="+1;
+            }
+            
+            function test_2()
+            {
+                
+                document.getElementById("next").href="/admin-surprise?option="+2;
+            }
+        </script>
 
 
     </head>
@@ -61,6 +80,32 @@
             {% endfor %}
 
         </table>
+        
+        <div class="container">
+        
+        {% if flag1 == 1 %} 
+        
+            <form method="post">
+                
+                <a href="/admin-surprise?option=2" id="next" class="submitBtn" type="button">Previous</a>
+                
+            </form>
+        
+        {% endif %}
+        
+        {% if flag == 1 %} 
+        
+            <form method="post">
+                
+                <a href="/admin-surprise?option=1" id="next" class="submitBtn" type="button">Next</a>
+                
+            </form>
+        
+        {% endif %}
+        
+        </div>
+        
+        
 
     </body>
 </html>
