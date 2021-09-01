@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Admin Page</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+        <style>
+
+            table {
+                border: 4px solid fuchsia;
+                justify-content: center;
+            }
+            td,th {
+                padding-right: 40px;
+            }
+            th {
+                background-color: hotpink;
+            }
+            td {
+                border-top: 2px solid deeppink;
+            }
+
+
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <table>
+            <thead> LIST OF CANDIDATES </thead>
+
+            <tr>
+
+                <th> USERNAME </th>
+                <th> EMAIL </th>
+                <th> MARKS </th>
+                <th> DATE </th>
+
+            </tr>
+
+            {% for i in user %}
+
+            <tr>
+
+                <td> {{ i.username }} </td>
+                <td>  {{i.email_address}} </td>
+                <td> {{i.marks}} </td>
+                <td> {{i.date}} </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </body>
+</html>

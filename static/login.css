@@ -132,6 +132,10 @@ ol{
     -webkit-clip-path: none;
     clip-path: none;
   }
+    
+    form{
+        margin-bottom: 40px;
+    }
 }
 
 .login-text {
@@ -207,4 +211,3 @@ ol{
 .login-form input.btn:hover {
   color: #1d3557;
   background: #ffffff;
-}

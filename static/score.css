@@ -227,3 +227,12 @@ ol{
   color: #1d3557;
   background: #ffffff;
 }
+
+@media(max-width: 575.98px) {
+    .rules {
+        font-size: 40px;
+    }
+    .container {
+        height: 100%;
+    }
+}
